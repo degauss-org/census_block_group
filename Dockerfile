@@ -17,9 +17,9 @@ RUN apt-get update \
 COPY renv.lock .
 RUN R --quiet -e "renv::restore()"
 
-COPY geomarker_name.rds .
-COPY geomarker_name.R .
+COPY NHGIS_US_2010_block_groups_5072_simplefeatures.rds .
+COPY census_block_group.R .
 
 WORKDIR /tmp
 
-ENTRYPOINT ["/app/geomarker_name.R"]
+ENTRYPOINT ["/app/census_block_group.R"]
