@@ -1,6 +1,6 @@
 # census_block_group <a href='https://degauss-org.github.io/DeGAUSS/'><img src='DeGAUSS_hex.png' align="right" height="138.5" /></a>
 
-> short description of geomarker
+> A docker container for assigning census block group id to geocoded addresses.
 
 [![Docker Build Status](https://img.shields.io/docker/build/degauss/census_block_group)](https://hub.docker.com/repository/docker/degauss/census_block_group/tags)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/degauss-org/census_block_group)](https://github.com/degauss-org/census_block_group/releases)
