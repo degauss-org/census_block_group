@@ -2,7 +2,7 @@
 
 > A docker container for assigning census block group id to geocoded addresses.
 
-[![Docker Build Status](https://img.shields.io/docker/build/degauss/census_block_group)](https://hub.docker.com/repository/docker/degauss/census_block_group/tags)
+[![Docker Build Status](https://img.shields.io/docker/automated/degauss/census_block_group)](https://hub.docker.com/repository/docker/degauss/census_block_group/tags)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/degauss-org/census_block_group)](https://github.com/degauss-org/census_block_group/releases)
 
 ## DeGAUSS example call
