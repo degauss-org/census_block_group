@@ -8,13 +8,17 @@
 ## DeGAUSS example call
 
 ```sh
-docker run --rm -v $PWD:/tmp degauss/census_block_group:0.1 my_address_file_geocoded.csv
+docker run --rm -v $PWD:/tmp degauss/census_block_group:0.2 my_address_file_geocoded.csv
 ```
 
 ## geomarker data
 
 - block group shapefiles were obtained from [NHGIS](https://www.nhgis.org/) and transformed using the `00_make_block_group_shp.R` file in this repository.
-- The transformed block group shapefile is stored at [`s3://geomarker/geometries/NHGIS_US_2010_block_groups_5072_simplefeatures.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/NHGIS_US_2010_block_groups_5072_simplefeatures.rds)
+- The transformed block group shapefiles are stored at 
+
+    + [`s3://geomarker/geometries/block_groups_2010_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/block_groups_2010_5072.rds)
+
+    + [`s3://geomarker/geometries/block_groups_2000_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/block_groups_2000_5072.rds)
 
 ## DeGAUSS details
 
