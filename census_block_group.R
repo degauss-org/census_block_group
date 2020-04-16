@@ -6,7 +6,7 @@ library(sf)
 
 doc <- '
 Usage:
-  census_block_group.R <filename>
+  census_block_group.R <filename> <census_year>
 '
 
 opt <- docopt::docopt(doc)
@@ -30,8 +30,7 @@ d <-
 d <- st_transform(d, 5072)
 
 message('\nloading block group shape files...')
-block_groups <- readRDS(file="/app/NHGIS_US_2010_block_groups_5072_simplefeatures.rds") %>%
-  mutate(fips_block_group_id = as.character(fips_block_group_id))
+block_groups <- readRDS(file=paste0("/app/block_groups_", opt$census_year, "_5072.rds"))
 
 message('\nfinding block group for each point...')
 d <- sf::st_join(d, block_groups, left = FALSE)
@@ -43,6 +42,6 @@ d <- d %>%
 
 out <- left_join(raw_data, d, by = '.row') %>% select(-.row)
 
-out_file_name <- paste0(tools::file_path_sans_ext(opt$filename), '_census_block_group.csv')
+out_file_name <- paste0(tools::file_path_sans_ext(opt$filename), '_census_block_group_', opt$census_year, '.csv')
 readr::write_csv(out, out_file_name)
 message('\nFINISHED! output written to ', out_file_name)

@@ -12,12 +12,14 @@ RUN apt-get update \
   libgeos-dev=3.5.1-3 \
   libudunits2-dev=2.2.20-1+b1 \
   libproj-dev=4.9.3-1 \
+  libssl-dev \
   && apt-get clean
 
 COPY renv.lock .
 RUN R --quiet -e "renv::restore()"
 
-COPY NHGIS_US_2010_block_groups_5072_simplefeatures.rds .
+COPY block_groups_2010_5072.rds .
+COPY block_groups_2000_5072.rds .
 COPY census_block_group.R .
 
 WORKDIR /tmp
