@@ -8,8 +8,11 @@
 ## DeGAUSS example call
 
 ```sh
-docker run --rm -v $PWD:/tmp degauss/census_block_group:0.2 my_address_file_geocoded.csv
+docker run --rm -v $PWD:/tmp degauss/census_block_group:0.2 my_address_file_geocoded.csv 2010
 ```
+
+* The first argument (`my_address_file_geocoded.csv`) is the name of your geocoded csv file
+* The second argument (`2010`) is the year for assignment of block groups. Currently supported years include 2000 and 2010.
 
 ## geomarker data
 
