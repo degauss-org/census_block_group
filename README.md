@@ -25,5 +25,5 @@ docker run --rm -v $PWD:/tmp degauss/census_block_group:0.2 my_address_file_geoc
 
 ## DeGAUSS details
 
-For detailed documentation on DeGAUSS, including general usage and installation, please see the [DeGAUSS README](https://github.com/degauss-org/DeGAUSS).
+For detailed documentation on DeGAUSS, including general usage and installation, please see the [DeGAUSS webpage](https://degauss.org).
 
