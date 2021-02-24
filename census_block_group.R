@@ -1,8 +1,12 @@
 #!/usr/local/bin/Rscript
 
-library(dplyr)
-library(tidyr)
-library(sf)
+dht::greeting(geomarker_name = 'census_block_group',
+              version = '0.3',
+              description = 'adds census block group numbers to geocoded addresses')
+
+dht::qlibrary(dplyr)
+dht::qlibrary(tidyr)
+dht::qlibrary(sf)
 
 doc <- '
 Usage:
