@@ -5,6 +5,19 @@
 [![Docker Build Status](https://img.shields.io/docker/automated/degauss/census_block_group)](https://hub.docker.com/repository/docker/degauss/census_block_group/tags)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/tag/degauss-org/census_block_group)](https://github.com/degauss-org/census_block_group/releases)
 
+## Background on Census Block Groups and GEOIDs
+
+- Census block groups are a low level designation within the US Census geographical hierarchy, one degree finer than a census tract. The US Census provides a diagram visualizing the [hierarchy](https://www2.census.gov/geo/pdfs/reference/geodiagram.pdf).
+- The first 11 characters in a census block group GEOID indicate the census tract, county and state that the block group lies within. The US Census GEOIDs are constructed in a manner that reflects the geographical hierary of the designated area. By using the segments of the GEOID, it is possible to select data based on area types further up in the hierarchy.
+
+    | Area Type | GEOID | Number of Digits | Example Area | Example GEOID |
+    | :-- | :-- | :-- | :-- | :-- |
+    | State | State | 2 | Ohio | 39 |
+    | County | State + County | 2+3=5 | Hamilton County | 39061 |
+    | Census Tract | State + County + Tract | 2+3+6=11 | Tract 32 in Hamilton County | 39061003200 | 
+    | Block Group | State + County + Tract +<br /> Block Group | 2+3+6+1=12 | Block Group 1 in Tract 32 | 390610032001 |
+    
+
 ## DeGAUSS example call
 
 ```sh
