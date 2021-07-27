@@ -1,8 +1,9 @@
 FROM rocker/r-ver:4.0.0
 
-# install a newer-ish version of renv, but the specific version we want will be restored from the renv lockfile
-ENV RENV_VERSION 0.8.3-81
-RUN R --quiet -e "source('https://install-github.me/rstudio/renv@${RENV_VERSION}')"
+RUN R --quiet -e "install.packages('remotes', repos = 'https://packagemanager.rstudio.com/all/__linux__/focal/latest')"
+# make sure version matches what is used in the project: packageVersion('renv')
+ENV RENV_VERSION 0.13.2
+RUN R --quiet -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 
 WORKDIR /app
 
@@ -16,12 +17,14 @@ RUN apt-get update \
   && apt-get clean
 
 COPY renv.lock .
-RUN R --quiet -e "renv::restore()"
+RUN R --quiet -e "renv::restore(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/__linux__/focal/latest'))"
 
 COPY block_groups_2020_5072.rds .
 COPY block_groups_2010_5072.rds .
 COPY block_groups_2000_5072.rds .
 COPY block_groups_1990_5072.rds .
+COPY tracts_1980_5072.rds .
+COPY tracts_1970_5072.rds .
 COPY census_block_group.R .
 
 WORKDIR /tmp
