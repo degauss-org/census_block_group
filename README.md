@@ -1,6 +1,6 @@
 # census_block_group <a href='https://degauss-org.github.io/DeGAUSS/'><img src='DeGAUSS_hex.png' align="right" height="138.5" /></a>
 
-> A docker container for assigning census block group id to geocoded addresses.
+> A docker container for assigning census block group and/or tract identifier to geocoded addresses.
 
 [![Docker Build Status](https://img.shields.io/docker/automated/degauss/census_block_group)](https://hub.docker.com/repository/docker/degauss/census_block_group/tags)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/tag/degauss-org/census_block_group)](https://github.com/degauss-org/census_block_group/releases)
@@ -11,12 +11,13 @@
 docker run --rm -v $PWD:/tmp degauss/census_block_group:0.4.0 my_address_file_geocoded.csv 2010
 ```
 
-* The first argument (`my_address_file_geocoded.csv`) is the name of your geocoded csv file
-* The second argument (`2010`) is the year for assignment of block groups. Currently supported years include 1990, 2000, 2010, and 2020.
+* The first argument (`my_address_file_geocoded.csv`) is the name of your geocoded csv file.
+
+* The second argument (`2010`) is the year for assignment of census geographies. Available years for census block group and census tract identifiers include 1990, 2000, 2010, and 2020. Additionally, tracts identifiers are available for 1970 and 1980.
     
 ## Geomarker data
 
-- block group shapefiles for 1990, 2000, and 2010 were obtained from [NHGIS](https://www.nhgis.org/) and transformed using the `00_make_block_group_shp.R` file in this repository.
+- block group shapefiles for 1990, 2000, and 2010, as well as tract shapefiles for 1970 and 1980, were obtained from [NHGIS](https://www.nhgis.org/) and transformed using the `00_make_block_group_shp.R` file in this repository.
 
 - block group shapefiles for 2020 were obtained directly from the [U.S. Census Bureau](https://www.census.gov/geographies/mapping-files/2020/geo/tiger-line-file.html) via `get_2020_block_groups.R`. 
 
@@ -28,7 +29,11 @@ docker run --rm -v $PWD:/tmp degauss/census_block_group:0.4.0 my_address_file_ge
 
     + [`s3://geomarker/geometries/block_groups_2000_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/block_groups_2000_5072.rds)
     
-        + [`s3://geomarker/geometries/block_groups_1990_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/block_groups_1990_5072.rds)
+    + [`s3://geomarker/geometries/block_groups_1990_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/block_groups_1990_5072.rds)
+        
+    + [`s3://geomarker/geometries/tracts_1980_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/tracts_1980_5072.rds)
+                
+    + [`s3://geomarker/geometries/tracts_1970_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/tracts_1970_5072.rds)
 
 ## Census block groups and GEOIDs
 
