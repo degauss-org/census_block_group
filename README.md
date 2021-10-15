@@ -1,4 +1,4 @@
-# census_block_group <a href='https://degauss-org.github.io/DeGAUSS/'><img src='DeGAUSS_hex.png' align="right" height="138.5" /></a>
+# census_block_group <a href='https://degauss.org'><img src='DeGAUSS_hex.png' align="right" height="138.5" /></a>
 
 > A docker container for assigning census block group and/or tract identifier to geocoded addresses.
 
