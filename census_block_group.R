@@ -51,7 +51,7 @@ if (opt$census_year %in% c('1980', '1970')) {
 }
 
 message('\nfinding containing geography for each point...')
-d <- sf::st_join(d, geography, left = FALSE)
+d <- sf::st_join(d, geography, left = FALSE, largest = TRUE)
 
 if(! opt$census_year %in% c('1980', '1970')) {
   d <- d %>%
