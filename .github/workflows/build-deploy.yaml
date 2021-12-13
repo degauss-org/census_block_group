@@ -65,7 +65,7 @@ jobs:
       - name: Test ${{ matrix.dockerfile[1] }}
         run: |
           printf "Testing ${{ env.container }}"
-          docker run --rm -v "${PWD}/test":/tmp ${{ env.container }} my_address_file_geocoded.csv
+          docker run --rm -v "${PWD}/test":/tmp ${{ env.container }} my_address_file_geocoded.csv 2010
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v1
         with:
