@@ -1,7 +1,7 @@
 #!/usr/local/bin/Rscript
 
 dht::greeting(geomarker_name = 'census_block_group',
-              version = '0.4.0',
+              version = '0.4.1',
               description = 'adds census block group or tract identifiers to geocoded addresses')
 
 dht::qlibrary(dplyr)
@@ -51,7 +51,7 @@ if (opt$census_year %in% c('1980', '1970')) {
 }
 
 message('\nfinding containing geography for each point...')
-d <- sf::st_join(d, geography, left = FALSE)
+d <- sf::st_join(d, geography, left = FALSE, largest = TRUE)
 
 if(! opt$census_year %in% c('1980', '1970')) {
   d <- d %>%
