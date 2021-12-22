@@ -2,13 +2,12 @@
 
 > A docker container for assigning census block group and/or tract identifier to geocoded addresses.
 
-[![Docker Build Status](https://img.shields.io/docker/automated/degauss/census_block_group)](https://hub.docker.com/repository/docker/degauss/census_block_group/tags)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/tag/degauss-org/census_block_group)](https://github.com/degauss-org/census_block_group/releases)
 
 ## DeGAUSS example call
 
 ```sh
-docker run --rm -v $PWD:/tmp degauss/census_block_group:0.4.1 my_address_file_geocoded.csv 2010
+docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.1 my_address_file_geocoded.csv 2010
 ```
 
 * The first argument (`my_address_file_geocoded.csv`) is the name of your geocoded csv file.
