@@ -35,7 +35,11 @@ saveRDS(blk_grps_sf_1990, "block_groups_1990_5072.rds")
 tracts_sf_1980 <- st_read('/Users/RASV5G/Downloads/nhgis0018_shape/nhgis0018_shapefile_tl2000_us_tract_1980/US_tract_1980.shp')
 
 tracts_sf_1980 <- st_transform(tracts_sf_1980, crs=5072) %>%
-  dplyr::select(fips_tract_id_1980 = GISJOIN2,
+  dplyr::mutate(state_fips = stringr::str_sub(NHGISST, 1, 2),
+                county_fips = stringr::str_sub(NHGISCTY, 1, 3),
+                tract_fips = stringr::str_sub(GISJOIN, 9),
+                fips_tract_id_1980 = glue::glue('{state_fips}{county_fips}{tract_fips}')) %>%
+  dplyr::select(fips_tract_id_1980,
                 geometry) %>%
   mutate(fips_tract_id_1980 = as.character(fips_tract_id_1980))
 
@@ -44,8 +48,14 @@ saveRDS(tracts_sf_1980, "tracts_1980_5072.rds")
 # 1970
 tracts_sf_1970 <- st_read('/Users/RASV5G/Downloads/nhgis0018_shape/nhgis0018_shapefile_tl2000_us_tract_1970/US_tract_1970.shp')
 
+summary(as.numeric(tracts_sf_1970$NHGISST))
+
 tracts_sf_1970 <- st_transform(tracts_sf_1970, crs=5072) %>%
-  dplyr::select(fips_tract_id_1970 = GISJOIN2,
+  dplyr::mutate(state_fips = stringr::str_sub(NHGISST, 1, 2),
+                county_fips = stringr::str_sub(NHGISCTY, 1, 3),
+                tract_fips = stringr::str_sub(GISJOIN, 9),
+                fips_tract_id_1970 = glue::glue('{state_fips}{county_fips}{tract_fips}')) %>%
+  dplyr::select(fips_tract_id_1970,
                 geometry) %>%
   mutate(fips_tract_id_1970 = as.character(fips_tract_id_1970))
 
