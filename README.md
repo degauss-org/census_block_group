@@ -7,7 +7,7 @@
 ## DeGAUSS example call
 
 ```sh
-docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.1 my_address_file_geocoded.csv 2010
+docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.2 my_address_file_geocoded.csv 2010
 ```
 
 * The first argument (`my_address_file_geocoded.csv`) is the name of your geocoded csv file.
