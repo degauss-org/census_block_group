@@ -7,7 +7,7 @@
 ## DeGAUSS example call
 
 ```sh
-docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.1 my_address_file_geocoded.csv 2010
+docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.2 my_address_file_geocoded.csv 2010
 ```
 
 * The first argument (`my_address_file_geocoded.csv`) is the name of your geocoded csv file.
@@ -45,6 +45,8 @@ docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.1 my_add
     | County | State + County | 2+3=5 | Hamilton County | 39061 |
     | Census Tract | State + County + Tract | 2+3+6=11 | Tract 32 in Hamilton County | 39061003200 | 
     | Block Group | State + County + Tract +<br /> Block Group | 2+3+6+1=12 | Block Group 1 in Tract 32 | 390610032001 |
+    
+Due to inconsistencies in the 1970 and 1980 tract identifiers, we concatenated the state FIPS (`NHGISST`), county FIPS (`NGHISCTY`), and tract FIPS (the last 4 or 6 digits of `GISJOIN2`) to construct the full `fips_tract_id`. Since the length of tract FIPS codes varied, we padded all tract FIPS to the maximum 6 digits using zeros. 
 
 ## DeGAUSS details
 
