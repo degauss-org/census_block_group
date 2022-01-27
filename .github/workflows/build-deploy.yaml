@@ -66,6 +66,10 @@ jobs:
         run: |
           printf "Testing ${{ env.container }}"
           docker run --rm -v "${PWD}/test":/tmp ${{ env.container }} my_address_file_geocoded.csv 2010
+          docker run --rm -v "${PWD}/test":/tmp ${{ env.container }} my_address_file_geocoded.csv 2000
+          docker run --rm -v "${PWD}/test":/tmp ${{ env.container }} my_address_file_geocoded.csv 1990
+          docker run --rm -v "${PWD}/test":/tmp ${{ env.container }} my_address_file_geocoded.csv 1980
+          docker run --rm -v "${PWD}/test":/tmp ${{ env.container }} my_address_file_geocoded.csv 1970
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v1
         with:
