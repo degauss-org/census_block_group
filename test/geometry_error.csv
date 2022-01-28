@@ -1,0 +1,2 @@
+id,address,matched_street,matched_zip,matched_city,matched_state,lat,lon,score,precision,geocode_result
+10606,8379 Creamer Rd WASHINGTON COURT HOUSE OH 43160,Creamer Rd,43160,Washington Court House,OH,39.625348,-83.542276,0.967,range,geocoded
