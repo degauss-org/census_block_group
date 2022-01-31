@@ -20,6 +20,8 @@ docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.2 my_add
 
 - block group shapefiles for 2020 were obtained directly from the [U.S. Census Bureau](https://www.census.gov/geographies/mapping-files/2020/geo/tiger-line-file.html) via `get_2020_block_groups.R`. 
 
+- to avoid any geometry evaluation errors (i.e. self-intersecting rings), we used `sf::st_make_valid` on all tract and block group polygons
+
 - The transformed block group shapefiles are stored at 
 
     + [`s3://geomarker/geometries/block_groups_2020_5072.rds`](https://geomarker.s3.us-east-2.amazonaws.com/geomarker/geometries/block_groups_2020_5072.rds)
