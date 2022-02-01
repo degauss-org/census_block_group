@@ -7,7 +7,7 @@
 ## DeGAUSS example call
 
 ```sh
-docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.2 my_address_file_geocoded.csv 2010
+docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.3 my_address_file_geocoded.csv 2010
 ```
 
 * The first argument (`my_address_file_geocoded.csv`) is the name of your geocoded csv file.
@@ -49,6 +49,10 @@ docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.4.2 my_add
     | Block Group | State + County + Tract +<br /> Block Group | 2+3+6+1=12 | Block Group 1 in Tract 32 | 390610032001 |
     
 Due to inconsistencies in the 1970 and 1980 tract identifiers, we concatenated the state FIPS (`NHGISST`), county FIPS (`NGHISCTY`), and tract FIPS (the last 4 or 6 digits of `GISJOIN2`) to construct the full `fips_tract_id`. Since the length of tract FIPS codes varied, we padded all tract FIPS to the maximum 6 digits using zeros. 
+
+## st_census_tract
+
+For spatiotemporal data in which each location is associated with a specified date range, consider using the [`st_census_tract`](https://degauss.org/st_census_tract/) container, which adds census tract identifiers for the appropriate vintage (1970-2020) based on `start_date` and `end_date` for each input location.
 
 ## DeGAUSS details
 
