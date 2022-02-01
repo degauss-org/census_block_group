@@ -1,9 +1,7 @@
 #!/usr/local/bin/Rscript
 
 library(dht)
-dht::greeting(geomarker_name = 'census_block_group',
-              version = '0.4.2',
-              description = 'adds census block group or tract identifiers to geocoded addresses')
+dht::greeting()
 
 dht::qlibrary(dplyr)
 dht::qlibrary(tidyr)
