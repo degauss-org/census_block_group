@@ -93,17 +93,6 @@
       "Hash": "50c838a310445e954bc13f26f26a6ecf",
       "Requirements": []
     },
-    "aws.signature": {
-      "Package": "aws.signature",
-      "Version": "0.6.0",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "0006bcef272aad12f78dd5a85fc7f4fc",
-      "Requirements": [
-        "base64enc",
-        "digest"
-      ]
-    },
     "backports": {
       "Package": "backports",
       "Version": "1.1.6",
@@ -285,8 +274,8 @@
       "RemoteRepo": "dht",
       "RemoteUsername": "degauss-org",
       "RemoteRef": "HEAD",
-      "RemoteSha": "e4e4143074dc48733799b2e0bdb3028789958f70",
-      "Hash": "8311c976a9464cf4675c3d8b889f48b7",
+      "RemoteSha": "597cce95f4a7655382ccd0811755b08c1d2e49c1",
+      "Hash": "e111f86cf26050a09290e528ad6738d8",
       "Requirements": [
         "cli",
         "dplyr",
@@ -1009,31 +998,6 @@
         "magrittr",
         "selectr",
         "xml2"
-      ]
-    },
-    "s3": {
-      "Package": "s3",
-      "Version": "0.3.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "s3",
-      "RemoteUsername": "geomarker-io",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "ed7530a213139c92d8e5984661f9158afa07e174",
-      "Hash": "87d6675d09cb8912c2cf3d66aec0a7cc",
-      "Requirements": [
-        "aws.signature",
-        "cli",
-        "digest",
-        "dplyr",
-        "fs",
-        "glue",
-        "httr",
-        "magrittr",
-        "prettyunits",
-        "purrr",
-        "tibble"
       ]
     },
     "scales": {
