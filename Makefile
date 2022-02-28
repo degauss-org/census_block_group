@@ -1,42 +1,18 @@
-REGISTRY_HOST=docker.io
-USERNAME=degauss
-NAME=$(shell basename "$(CURDIR)")
-IMAGE=$(REGISTRY_HOST)/$(USERNAME)/$(NAME)
-
-.PHONY: build test shell release clean
+.PHONY: build test shell clean
 
 build:
-	docker build -t $(IMAGE) .
+	docker build -t census_block_group .
 
 test:
-	docker run --rm -v "${PWD}/test":/tmp $(IMAGE) my_address_file_geocoded.csv 2020
-	docker run --rm -v "${PWD}/test":/tmp $(IMAGE) my_address_file_geocoded.csv 2010
-	docker run --rm -v "${PWD}/test":/tmp $(IMAGE) my_address_file_geocoded.csv 2000
-	docker run --rm -v "${PWD}/test":/tmp $(IMAGE) my_address_file_geocoded.csv 1990
-	docker run --rm -v "${PWD}/test":/tmp $(IMAGE) my_address_file_geocoded.csv 1980
-	docker run --rm -v "${PWD}/test":/tmp $(IMAGE) my_address_file_geocoded.csv 1970
+	docker run --rm -v "${PWD}/test":/tmp census_block_group my_address_file_geocoded.csv 2020
+	docker run --rm -v "${PWD}/test":/tmp census_block_group my_address_file_geocoded.csv 2010
+	docker run --rm -v "${PWD}/test":/tmp census_block_group my_address_file_geocoded.csv 2000
+	docker run --rm -v "${PWD}/test":/tmp census_block_group my_address_file_geocoded.csv 1990
+	docker run --rm -v "${PWD}/test":/tmp census_block_group my_address_file_geocoded.csv 1980
+	docker run --rm -v "${PWD}/test":/tmp census_block_group my_address_file_geocoded.csv 1970
 
 shell:
-	docker run --rm -it --entrypoint=/bin/bash -v "${PWD}/test":/tmp $(IMAGE)
-
-release:
-ifndef VERSION
-	$(error VERSION is not set. Usage: "make release VERSION=X.X")
-endif
-ifndef DOCKER_USERNAME
-	$(error DOCKER_USERNAME is not set)
-endif
-ifndef DOCKER_PAT
-	$(error DOCKER_PAT is not set)
-endif
-	git commit -am "Release for image version $(VERSION)" --allow-empty
-	git tag -a $(VERSION) -m "${VERSION}"
-	git push origin ${VERSION}
-	git push
-	echo "${DOCKER_PAT}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-	docker tag ${IMAGE}:latest ${IMAGE}:${VERSION}
-	docker push ${IMAGE}:${VERSION}
-	docker push ${IMAGE}:latest
+	docker run --rm -it --entrypoint=/bin/bash -v "${PWD}/test":/tmp census_block_group
 
 clean:
 	docker system prune -f

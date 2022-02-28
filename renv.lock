@@ -183,10 +183,10 @@
     },
     "clipr": {
       "Package": "clipr",
-      "Version": "0.7.1",
+      "Version": "0.8.0",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "ebaa97ac99cc2daf04e77eecc7b781d7",
+      "Repository": "RSPM",
+      "Hash": "3f038e5ac7f41d4ac41ce658c85e3042",
       "Requirements": []
     },
     "colorspace": {
@@ -207,10 +207,10 @@
     },
     "crayon": {
       "Package": "crayon",
-      "Version": "1.4.2",
+      "Version": "1.5.0",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "0a6a65d92bd45b47b94b84244b528d17",
+      "Repository": "RSPM",
+      "Hash": "741c2e098e98afe3dc26a7b0e5489f4e",
       "Requirements": []
     },
     "credentials": {
@@ -267,15 +267,15 @@
     },
     "dht": {
       "Package": "dht",
-      "Version": "0.4.3",
+      "Version": "1.0.0",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "dht",
       "RemoteUsername": "degauss-org",
       "RemoteRef": "HEAD",
-      "RemoteSha": "597cce95f4a7655382ccd0811755b08c1d2e49c1",
-      "Hash": "e111f86cf26050a09290e528ad6738d8",
+      "RemoteSha": "4ee2102772b010cb06371966f7f1beb4dcfd2c00",
+      "Hash": "d6b15b407d5f20e2fd987a5f6328815c",
       "Requirements": [
         "cli",
         "dplyr",
@@ -404,10 +404,10 @@
     },
     "generics": {
       "Package": "generics",
-      "Version": "0.1.1",
+      "Version": "0.1.2",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "3f6bcfb0ee5d671d9fd1893d2faa79cb",
+      "Repository": "RSPM",
+      "Hash": "177475892cf4a55865868527654a7741",
       "Requirements": []
     },
     "gert": {
@@ -725,10 +725,10 @@
     },
     "pillar": {
       "Package": "pillar",
-      "Version": "1.6.5",
+      "Version": "1.7.0",
       "Source": "Repository",
       "Repository": "RSPM",
-      "Hash": "464a3e015331eeb8efd1d239cad5128d",
+      "Hash": "51dfc97e1b7069e9f7e6f83f3589c22e",
       "Requirements": [
         "cli",
         "crayon",
