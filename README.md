@@ -18,7 +18,7 @@ will produce `my_address_file_geocoded_census_block_group_0.5.0_2010.csv` with a
 
 ### Optional Argument
 
-The default census year is 2010 meters, but can be changed by supplying an optional argument to the degauss command. For example,
+The default census year is 2010, but can be changed by supplying an optional argument to the degauss command. For example,
 
 ```sh
 docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.5.0 my_address_file_geocoded.csv 1990
