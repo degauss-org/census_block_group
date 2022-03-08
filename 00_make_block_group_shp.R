@@ -31,9 +31,16 @@ blk_grps_sf_1990 <- st_read("nhgis0016_shape/nhgis0016_shapefile_tl2000_us_blck_
 
 blk_grps_sf_1990 <- st_transform(blk_grps_sf_1990, crs=5072)
 
+blk_grps_sf_1990 %>%
+  dplyr::mutate(state_fips = stringr::str_sub(string = GISJOIN2, 1, 2))
+
 blk_grps_sf_1990 <- blk_grps_sf_1990 %>%
-  dplyr::select(fips_block_group_id_1990 = STFID,
-                geometry) %>%
+  dplyr::mutate(state_fips = stringr::str_sub(blk_grps_sf_1990$GISJOIN2, 1, 2),
+                county_fips = stringr::str_sub(blk_grps_sf_1990$GISJOIN2, 4, 6),
+                tract_fips = stringr::str_sub(blk_grps_sf_1990$GISJOIN2, 8, -2),
+                tract_fips = stringr::str_pad(tract_fips, 6, pad = "0"),
+                fips_block_group_id_1990 = glue::glue('{state_fips}{county_fips}{tract_fips}{GROUP}')) %>%
+  select(fips_block_group_id_1990, geometry) %>%
   mutate(fips_block_group_id_1990 = as.character(fips_block_group_id_1990))
 
 blk_grps_sf_1990 <- sf::st_make_valid(blk_grps_sf_1990)
