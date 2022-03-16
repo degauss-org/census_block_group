@@ -3,10 +3,4 @@
 
 # except what we need
 !/renv.lock
-!/census_block_group.R
-!/block_groups_2020_5072.rds
-!/block_groups_2010_5072.rds
-!/block_groups_2000_5072.rds
-!/block_groups_1990_5072.rds
-!/tracts_1980_5072.rds
-!/tracts_1970_5072.rds
+!/entrypoint.R
