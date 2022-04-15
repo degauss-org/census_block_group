@@ -9,7 +9,7 @@ withr::with_message_sink("/dev/null", library(sf))
 
 doc <- "
       Usage:
-      entrypoint.R <filename> <census_year>
+      entrypoint.R <filename> [<census_year>]
       "
 
 opt <- docopt::docopt(doc)
@@ -20,6 +20,10 @@ opt <- docopt::docopt(doc)
 if (is.null(opt$census_year)) {
   opt$census_year <- 2010
   cli::cli_alert("No census year provided. Using 2010.")
+}
+
+if(opt$census_year == 2010 | opt$census_year == 2020) {
+  dht::check_ram(5)
 }
 
 if(! opt$census_year %in% c('2020', '2010', '2000', '1990', '1980', '1970')) {
