@@ -8,10 +8,10 @@
 If `my_address_file_geocoded.csv` is a file in the current working directory with coordinate columns named `lat` and `lon`, then the [DeGAUSS command](https://degauss.org/using_degauss.html#DeGAUSS_Commands):
 
 ```sh
-docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.5.0 my_address_file_geocoded.csv
+docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.5.1 my_address_file_geocoded.csv
 ```
 
-will produce `my_address_file_geocoded_census_block_group_0.5.0_2010.csv` with added columns:
+will produce `my_address_file_geocoded_census_block_group_0.5.1_2010.csv` with added columns:
 
 - **`fips_block_group_id_2010`**: identifier for 2010 block group
 - **`fips_tract_id_2010`**: identifier for 2010 tract
@@ -24,7 +24,7 @@ The default census year is 2010, but can be changed by supplying an optional arg
 docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/census_block_group:0.5.0 my_address_file_geocoded.csv 1990
 ```
 
-will produce `my_address_file_geocoded_census_block_group_0.5.0_1990.csv`, with columns called **`fips_block_group_id_1990`** and **`fips_tract_id_1990`**. 
+will produce `my_address_file_geocoded_census_block_group_0.5.1_1990.csv`, with columns called **`fips_block_group_id_1990`** and **`fips_tract_id_1990`**. 
 
 Available years for census block group and census tract identifiers include 1990, 2000, 2010, and 2020. Additionally, tracts identifiers are available for 1970 and 1980.
 
