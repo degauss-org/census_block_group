@@ -53,8 +53,8 @@ d$d <- suppressWarnings( sf::st_join(d$d, geography, left = FALSE, largest = TRU
 
 if(! opt$census_year %in% c('1980', '1970')) {
   d$d <- d$d %>%
-    mutate_at(vars(starts_with(glue::glue('fips_block_group_id_{opt$census_year}'))),
-              list(fips_tract_id = ~stringr::str_sub(.x, 1, 11)))
+    mutate_at(vars(starts_with(glue::glue('census_block_group_id_{opt$census_year}'))),
+              list(census_tract_id = ~stringr::str_sub(.x, 1, 11)))
 
   names(d$d)[ncol(d$d)] <- glue::glue('{names(d$d)[ncol(d$d)]}_{opt$census_year}')
 }
