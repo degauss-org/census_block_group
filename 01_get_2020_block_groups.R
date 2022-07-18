@@ -26,6 +26,7 @@ states <-
 
 block_group_shp <- pmap(list(states$fl_name, states$state_folder, states$STATEFP),
                         possibly(get_block_group_shp, NA_real_))
+#block_group_shp[[6]] <- get_block_group_shp(states$fl_name[6], states$state_folder[6], states$STATEFP[6])
 names(block_group_shp) <- states$NAME
 
 block_group_shp_all <- block_group_shp[[1]]
@@ -35,13 +36,10 @@ for (i in 2:length(block_group_shp)) {
 }
 
 blk_grps_sf_2020 <- block_group_shp_all %>%
-  dplyr::select(fips_block_group_id_2020 = GEOID20,
+  dplyr::select(census_block_group_id_2020 = GEOID20,
                 geometry) %>%
-  mutate(fips_block_group_id_2020 = as.character(fips_block_group_id_2020))
+  mutate(census_block_group_id_2020 = as.character(census_block_group_id_2020))
 
 saveRDS(blk_grps_sf_2020, "block_groups_2020_5072.rds")
-
-
-
 
 
