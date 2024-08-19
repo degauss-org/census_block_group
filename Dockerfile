@@ -36,6 +36,7 @@ ADD https://geomarker.s3.us-east-2.amazonaws.com/geometries/block_groups_2000_50
 ADD https://geomarker.s3.us-east-2.amazonaws.com/geometries/block_groups_1990_5072.rds .
 ADD https://geomarker.s3.us-east-2.amazonaws.com/geometries/tracts_1980_5072.rds .
 ADD https://geomarker.s3.us-east-2.amazonaws.com/geometries/tracts_1970_5072.rds .
+COPY entrypoint.R .
 
 WORKDIR /tmp
 
