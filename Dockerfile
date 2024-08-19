@@ -2,7 +2,7 @@ FROM rocker/r-ver:4.4.1
 
 # DeGAUSS container metadata
 ENV degauss_name="census_block_group"
-ENV degauss_version="0.6.0"
+ENV degauss_version="1.0.0"
 ENV degauss_description="census block group and tract"
 ENV degauss_argument="census year [default: 2010]"
 
