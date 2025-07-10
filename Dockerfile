@@ -2,7 +2,7 @@ FROM rocker/r-ver:4.4.1
 
 # DeGAUSS container metadata
 ENV degauss_name="census_block_group"
-ENV degauss_version="1.0.1"
+ENV degauss_version="1.1.0"
 ENV degauss_description="census block group and tract"
 ENV degauss_argument="census year [default: 2010]"
 
@@ -30,7 +30,7 @@ COPY renv.lock .
 
 RUN R --quiet -e "renv::restore(repos = c(CRAN = 'https://packagemanager.posit.co/cran/latest'))"
 
-ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0/block_groups_2020_5072.rds .
+ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.1/block_groups_2020_5072.rds .
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0/block_groups_2010_5072.rds .
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0//block_groups_2000_5072.rds .
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0/block_groups_1990_5072.rds .
