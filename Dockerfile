@@ -30,7 +30,7 @@ COPY renv.lock .
 
 RUN R --quiet -e "renv::restore(repos = c(CRAN = 'https://packagemanager.posit.co/cran/latest'))"
 
-ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0/block_groups_2020_5072.rds .
+ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.2/block_groups_2020_5072.rds .
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0/block_groups_2010_5072.rds .
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0//block_groups_2000_5072.rds .
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0/block_groups_1990_5072.rds .
