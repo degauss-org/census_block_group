@@ -1,4 +1,4 @@
-FROM rocker/r-ver:4.5
+FROM rocker/r-ver:4.4
 
 # DeGAUSS container metadata
 ENV degauss_name="census_block_group"
