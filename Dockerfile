@@ -1,8 +1,8 @@
-FROM rocker/r-ver:4.4.1
+FROM rocker/r-ver:4.5
 
 # DeGAUSS container metadata
 ENV degauss_name="census_block_group"
-ENV degauss_version="1.1.0"
+ENV degauss_version="1.1.1"
 ENV degauss_description="census block group and tract"
 ENV degauss_argument="census year [default: 2010]"
 
@@ -20,15 +20,13 @@ RUN apt-get update \
     libproj-dev \
     && apt-get clean
 
-RUN R --quiet -e "install.packages('remotes', repo = c(CRAN = 'https://packagemanager.posit.co/cran/latest'))"
-
-RUN R --quiet -e "remotes::install_github('rstudio/renv@v1.0.7')"
+RUN R --quiet -e "install.packages('renv')"
 
 WORKDIR /app
 
 COPY renv.lock .
 
-RUN R --quiet -e "renv::restore(repos = c(CRAN = 'https://packagemanager.posit.co/cran/latest'))"
+RUN R --quiet -e "renv::restore(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/__linux__/focal/latest'))"
 
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.1/block_groups_2020_5072.rds .
 ADD https://github.com/degauss-org/census_block_group/releases/download/1.0.0/block_groups_2010_5072.rds .
